@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<canvas width="1700" height="300" id="cnv"></canvas>
+<canvas width="1600" height="300" id="cnv"></canvas>
 <ul>
       <li>
        <a href="index.php?rt=">Trgovine</a> 
