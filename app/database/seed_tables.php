@@ -42,10 +42,10 @@ function seed_table_products()
 	{
 		$st = $db->prepare( 'INSERT INTO projekt_products(id_trgovina, name, akcija, price) VALUES (:id_trgovina, :name, :akcija, :price)' );
 
-		$st->execute( array( 'id_trgovina' => 1, 'name' => 'Kruh sa sjemenkama', 'akcija' => 0, 'price' => 8.99 ) ); // mirko
-		$st->execute( array( 'id_trgovina' => 2, 'name' => 'Bijeli kruh', 'akcija' => 20, 'price' => 5.99) ); // slavko
-		$st->execute( array( 'id_trgovina' => 1, 'name' => 'Ananas', 'akcija' => 0, 'price' => 12.99 ) ); // mirko
-		$st->execute( array( 'id_trgovina' => 3, 'name' => 'Mlijeko', 'akcija' => 0, 'price' => 6.99) ); // ana
+		$st->execute( array( 'id_trgovina' => 1, 'name' => 'Kruh sa sjemenkama', 'akcija' => NULL, 'price' => 8.99 ) );
+		$st->execute( array( 'id_trgovina' => 2, 'name' => 'Bijeli kruh', 'akcija' => 20, 'price' => 5.99) ); 
+		$st->execute( array( 'id_trgovina' => 1, 'name' => 'Ananas', 'akcija' => NULL, 'price' => 12.99 ) ); 
+		$st->execute( array( 'id_trgovina' => 3, 'name' => 'Mlijeko', 'akcija' => NULL, 'price' => 6.99) ); 
 	}
 	catch( PDOException $e ) { exit( "PDO error [projekt_products]: " . $e->getMessage() ); }
 

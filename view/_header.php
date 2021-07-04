@@ -11,10 +11,10 @@
 <canvas width="1600" height="300" id="cnv"></canvas>
 <ul>
       <li>
-       <a href="index.php?rt=">Trgovine</a> 
+       <a href="index.php?rt=trgovine/index">Trgovine</a> 
       </li>
       <li>
-       <a href="index.php?rt=">Proizvodi</a> 
+       <a href="index.php?rt=index/index">Proizvodi</a> 
        </li>
       <li>
        <a href="index.php?rt=">Pretraga</a> 

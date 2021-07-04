@@ -73,7 +73,7 @@ function create_table_products()
 			'id int NOT NULL PRIMARY KEY AUTO_INCREMENT,' .
 			'id_trgovina int NOT NULL,' .
             'name varchar(100) NOT NULL,' .
-			'akcija decimal(15,2) NOT NULL,' .
+			'akcija INT,' .
             'price decimal(15,2) NOT NULL)'
 		);
 

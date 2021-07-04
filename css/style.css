@@ -37,3 +37,31 @@ ul {
     left:90%;
 }
 
+ul.products{
+    
+  list-style-type: none;
+  margin: 0;
+  left:0;
+  font-size: 20px;;
+  overflow: hidden;
+  background-color:white;
+  
+  
+
+}
+li.products {
+  color: white;
+  float: left;
+  padding: 10px;
+  width: 90%;
+  border: 10px solid white;
+  background-color: #64659d;
+}
+.proizvod {
+  color: white;
+  float: left;
+  padding: 10px;
+  width: 90%;
+  border: 10px solid white;
+  background-color: #64659d;
+}

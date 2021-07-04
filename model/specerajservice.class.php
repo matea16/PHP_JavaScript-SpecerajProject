@@ -34,6 +34,24 @@ class SpecerajService{
         return $products;
     }
 
+    //-----------------------------------------------------
+    //za trgovine
+    public static function getTrgovine()
+    {
+        $db=DB::getConnection();
+        $st=$db->prepare('SELECT * FROM projekt_trgovine');
+        $st->execute();
+
+        $trgovine=[];
+        while($row =$st->fetch())
+        {
+            $trgovine[]=$row['ime'];
+        }
+
+        return $products;
+
+    }
+
 
 
 }
