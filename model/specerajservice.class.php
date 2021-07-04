@@ -34,7 +34,7 @@ class SpecerajService{
         return $products;
     }
 
-    //-----------------------------------------------------
+     //-----------------------------------------------------
     //za trgovine
     public static function getTrgovine()
     {
@@ -45,10 +45,10 @@ class SpecerajService{
         $trgovine=[];
         while($row =$st->fetch())
         {
-            $trgovine[]=$row['ime'];
+            $trgovine[]=$row['name'];
         }
 
-        return $products;
+        return $trgovine;
 
     }
 
