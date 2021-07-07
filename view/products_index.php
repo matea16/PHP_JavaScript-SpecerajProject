@@ -8,6 +8,12 @@ if( isset($msg) ){
 ?>
 <hr>
 <br>
+<strong class="podnaslov">
+    <?php 
+    if($imeTrgovine!== "")
+        echo 'Proizvodi dostupni u trgovini:  <strong style="color:firebrick">'.$imeTrgovine.'</strong>';
+    ?> 
+</strong>
 <ul class="products">
 
     <?php
@@ -21,7 +27,9 @@ if( isset($msg) ){
                 echo '<li class="products">';
                 echo $product->name.'<br><br>';
                 echo $product->price.'kn<br><br>';
-                echo '-'.$product->akcija.'%<br></li>'; 
+                if ($product->akcija !== null)
+                    echo '-'.$product->akcija.'%<br></li>';
+                echo '<button id="dodajUkosaricu">Dodaj u košaricu</button>';
                 echo '</a>';   
             }
     }

@@ -6,6 +6,7 @@ class IndexController{
     {
 
         $productList=SpecerajService::getProductsOnAkcija();
+        $imeTrgovine="";
         require_once __DIR__.'/../view/products_index.php';
     }
     

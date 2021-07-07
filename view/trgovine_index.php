@@ -20,6 +20,7 @@ if( isset($msg) ){
             {
                 
                 echo '<li class="products">';
+                echo '<a href="index.php?rt=trgovine/sviProizvodi&imeTrgovine='.$trgovina.'">';
                 echo $trgovina.'<br><br>';
                 echo '</a>';   
             }

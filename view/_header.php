@@ -14,10 +14,10 @@
        <a href="index.php?rt=trgovine/index">Trgovine</a> 
       </li>
       <li>
-       <a href="index.php?rt=index/index">Proizvodi</a> 
+       <a href="index.php?rt=index/index">Proizvodi na akciji</a> 
        </li>
       <li>
-       <a href="index.php?rt=">Pretraga</a> 
+       <a href="index.php?rt=products/search">Pretraga</a> 
        </li>
       <li>
        <a href="index.php?rt=">Moja košarica</a>  

@@ -34,6 +34,31 @@ class SpecerajService{
         return $products;
     }
 
+    public static function findProducts($key_words)
+    {
+        $db = DB::getConnection();
+        $st = $db->prepare('SELECT * FROM projekt_products');
+        $st->execute();
+        $proizvodi=$st->fetchAll();
+        $products=[];
+        
+        foreach($proizvodi as $proizvod)
+        {
+            foreach($key_words as $word)            
+            {
+                $ime=strtolower($proizvod['name']);
+                if(strpos($ime, $word) !== false)
+                {
+                    $id=$proizvod['id'];
+                    $products[]=SpecerajService::getProductById($id);
+                    break;
+                }
+
+            }
+        }
+        return $products;
+    }
+
      //-----------------------------------------------------
     //za trgovine
     public static function getTrgovine()
@@ -50,6 +75,32 @@ class SpecerajService{
 
         return $trgovine;
 
+    }
+
+    public static function getTrgovinaId($imeTrgovine)
+    {
+        $db=DB::getConnection();
+        $st=$db->prepare('SELECT * FROM projekt_trgovine WHERE name=:ime');
+        $st->execute(['ime'=>$imeTrgovine]);
+        $row=$st->fetch();
+        return $row['id'];
+
+    }
+
+    public static function getProductsByStore($idTrgovine)
+    {
+        $db=DB::getConnection();
+        $st=$db->prepare('SELECT * FROM projekt_products WHERE id_trgovina=:id');
+        $st->execute(['id'=>$idTrgovine]);
+
+        $products=[];
+        while($row =$st->fetch())
+        {
+            $id_product=$row['id'];
+            $products[]=SpecerajService::getProductById($id_product);
+        }
+
+        return $products;
     }
 
 
