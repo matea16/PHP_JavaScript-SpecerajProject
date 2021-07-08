@@ -1,16 +1,22 @@
 
-$(document).ready( function()
+$(window).on( 'load',function()
 {
+    let image=new Image();
+    let imagePath = ('naslovna.jpg');
+    image.src=imagePath;
 
-    napisi_naslov();
+    $("image").ready(napisi_naslov);
+//    napisi_naslov();
 
-});
+
 
 function napisi_naslov()
 {
     $("#cnv").css("width", window.innerWidth + "px");
     let ctx = $('#cnv').get(0).getContext('2d');
     let w = $("#cnv").width();
+    let h = $("#cnv").height();
+    ctx.drawImage(image, 50, 50, image.width, image.height, 0,  0, w, h)
     
     
     ctx.textAlign = "center";
@@ -20,9 +26,11 @@ function napisi_naslov()
     ctx.fillText( "ŠPECERAJ", w/2 - duljinaNaslova/2, 125 );
     console.log(w);
 
+    
+
         
 }
 
-
+});
 
 

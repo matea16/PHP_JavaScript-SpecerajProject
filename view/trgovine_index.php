@@ -19,7 +19,7 @@ if( isset($msg) ){
             foreach($trgovineList as $trgovina)
             {
                 
-                echo '<li class="products">';
+                echo '<li class="products" >';
                 echo '<a href="index.php?rt=trgovine/sviProizvodi&imeTrgovine='.$trgovina.'">';
                 echo $trgovina.'<br><br>';
                 echo '</a>';   
