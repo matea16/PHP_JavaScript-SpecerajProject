@@ -11,6 +11,7 @@ $(document).ready(function(){
 });
 
 console.log("bla");
+console.log("opet");
 
 
 console.log("Martina");
