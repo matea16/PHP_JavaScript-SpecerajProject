@@ -101,6 +101,16 @@ li.products {
   font-size: 18px;
 
 }
+.akcija{
+  color: red;
+  text-decoration: line-through;
+
+}
+
+.novo{
+  color:red;
+}
+
 
 body{
   background-color: rgba(26, 96, 143, 0.349);
