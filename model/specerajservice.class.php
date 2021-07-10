@@ -59,6 +59,62 @@ class SpecerajService{
         return $products;
     }
 
+    public static function sortirajProizvode($productList, $kako)
+    {
+        if ($kako === 'uzlazno')
+            $products= SpecerajService::sortirajUzlazno($productList);
+        else if ($kako === 'silazno')
+            $products= SpecerajService::sortirajSilazno($productList);
+
+        return $products;
+        
+    }
+
+    public static function izracunajCijenu($proizvod)
+    {
+        if($proizvod->akcija!== null)
+            return $proizvod->price - ($proizvod->akcija/100)*$proizvod->price;
+
+        else return $proizvod -> price;
+            
+        
+    }
+
+    public static function sortirajUzlazno($lista)
+    {
+        for($i = 0; $i<sizeof($lista); ++$i)
+        {
+            for($j = $i+1; $j<sizeof($lista); ++$j)
+            {
+                if(SpecerajService::izracunajCijenu($lista[$i]) > SpecerajService::izracunajCijenu($lista[$j]))
+                {
+                    $temp = $lista[$i];
+                    $lista[$i] = $lista[$j];
+                    $lista[$j] = $temp;
+                }
+            }
+        }
+        return $lista;
+    }
+
+    public static function sortirajSilazno($lista)
+    {
+        for($i = 0; $i<sizeof($lista); ++$i)
+        {
+
+            for($j = $i+1; $j<sizeof($lista); ++$j)
+            {
+                if(SpecerajService::izracunajCijenu($lista[$i]) < SpecerajService::izracunajCijenu($lista[$j]))
+                {
+                    $temp = $lista[$i];
+                    $lista[$i] = $lista[$j];
+                    $lista[$j] = $temp;
+                }
+            }
+        }
+        return $lista;
+    }
+
      //-----------------------------------------------------
     //za trgovine
     public static function getTrgovine()

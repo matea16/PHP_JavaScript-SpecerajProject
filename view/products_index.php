@@ -1,4 +1,5 @@
 <?php 
+
 require_once __DIR__ . '/_header.php'; 
 
 
@@ -14,22 +15,29 @@ if( isset($msg) ){
         echo 'Proizvodi dostupni u trgovini:  <strong style="color:firebrick">'.$imeTrgovine.'</strong>';
     ?> 
 </strong>
+
+<strong class="podnaslov">
+    <?php 
+    if($keyWord!== "")
+        echo 'Traženi proizvod:  <strong style="color:firebrick">'.$keyWord.'</strong>';
+    ?> 
+</strong>
 <ul class="products">
 
     <?php
         $temp=[];
         if($productList !== $temp)
         {
-            $_POST['proizvodi'] = $productList;
             ?>
-            
-                <form action="index.php?rt=products/sortiraj" method="post">
-                Sortiraj po: <select name="kamo">
+                <form action="index.php?rt=products/sortiraj&ime=<?php echo $imeTrgovine ?>&keyWord=<?php echo $keyWord ?>" method="post">
+                <strong class="podnaslov" > Sortiraj po: 
+                <select name="kako">
                                 <option value="uzlazno"> Cijena uzlazno </option>
                                 <option value="silazno"> Cijena silazno </option>
                             </select>
-                <button type="submit"> Sortiraj! </button>
-
+                <button type="submit" class="sort"> Sortiraj! </button>
+        </strong>
+                <br><br>
 
             <?php
             foreach($productList as $product)
