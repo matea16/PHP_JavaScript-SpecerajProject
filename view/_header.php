@@ -13,7 +13,7 @@
 <nav id="navbar">
     <ul>
         <li>
-        <a href="index.php?rt=trgovine/index">Trgovine bla</a> 
+        <a href="index.php?rt=trgovine/index">Trgovine</a> 
         </li>
         <li>
         <a href="index.php?rt=index/index">Proizvodi na akciji</a> 
