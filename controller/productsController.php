@@ -5,7 +5,12 @@ class ProductsController{
 
     public function index()
     {
-
+        $username=$_GET['username'];
+            //$username='mirko';
+            $id=SpecerajService::getUserId($username);
+            $productList=SpecerajService::getOwnedProducts($id);
+            $when=0;
+            require_once __DIR__.'/../view/products_index.php';
     }
 
     public function search()
