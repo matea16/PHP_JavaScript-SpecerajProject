@@ -9,23 +9,24 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<canvas width="1600" height="350" id="cnv" style="position: relative; top:0; left:0;"></canvas>
-<ul style="position: absolute; top:250px; left:100px;">
-      <li style="position: relative;">
-       <a href="index.php?rt=trgovine/index">Trgovine</a> 
-      </li>
-      <li style="position: relative;">
-       <a href="index.php?rt=index/index">Proizvodi na akciji</a> 
-       </li>
-       <li style="position: relative;">
-       <a href="index.php?rt=products/search">Pretraga</a> 
-       </li>
-       <li style="position: relative;">
-       <a href="index.php?rt=">Moja košarica</a>  
-    </li>
+<canvas width="$(window).width()+70" height="300" id="cnv" style="position: relative; top:0; left:0;"></canvas>
+<nav id="navbar">
+    <ul>
+        <li>
+        <a href="index.php?rt=trgovine/index">Trgovine</a> 
+        </li>
+        <li>
+        <a href="index.php?rt=index/index">Proizvodi na akciji</a> 
+        </li>
+        <li>
+        <a href="index.php?rt=products/search">Pretraga</a> 
+        </li>
+        <li>
+        <a href="index.php?rt=">Moja košarica</a>  
+        </li>
 
-</ul>
-
+    </ul>
+</nav>
 <button id="btn-signin" style="position: absolute; top:60px; left:60px;">Sign in</button>
     <br>
     <br>

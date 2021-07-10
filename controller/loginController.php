@@ -13,8 +13,7 @@ class LoginController{
             $login = $es->Login($_POST['username'], $_POST['password']);
 
             if($login === true){
-				echo "ok";
-                //header( 'Location: index.php?rt=products/index&username='.$_POST['username'] );
+                header( 'Location: index.php?rt=products/index&username='.$_POST['username'] );
             }
             // else{
 
@@ -24,8 +23,6 @@ class LoginController{
             // }
         }
         else{
-
-            $msg = 'Niste unijeli potrebne informacije!';
 
             require_once __DIR__ . '/../view/index_index.php';
         }

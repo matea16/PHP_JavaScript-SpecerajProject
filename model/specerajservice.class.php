@@ -137,6 +137,34 @@ class SpecerajService{
         session_destroy();
     }
 
+    //-----------------------------------------------------------------------
+    //za korisnika
+
+    public static function getUserId($username)
+    {
+        $db=DB::getConnection();
+        $st=$db->prepare('SELECT * FROM projekt_users WHERE username=:username');
+        $st->execute(['username'=>$username]);
+        $row=$st->fetch();
+        return $row['id'];
+    }
+
+    public static function getOwnedProducts($user_id)
+    {
+        $db=DB::getConnection();
+        $st=$db->prepare('SELECT * FROM projekt_products WHERE id_user=:id_user');
+        $st->execute(['id_user'=>$user_id]);
+
+        $products=[];
+        while($row =$st->fetch())
+        {
+            $id_product=$row['id'];
+            $products[]=SpecerajService::getProductById($id_product);
+        }
+
+        return $products;
+    }
+
 
 }
 
