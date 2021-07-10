@@ -1,14 +1,9 @@
-
-$(window).on( 'load',function()
+let image=new Image();
+let imagePath = ('naslovna.jpg');
+image.src=imagePath;
+$("image").ready(function()
 {
-    let image=new Image();
-    let imagePath = ('naslovna.jpg');
-    image.src=imagePath;
-
-    $("image").ready(napisi_naslov);
-//    napisi_naslov();
-
-
+    napisi_naslov();
 
 function napisi_naslov()
 {
