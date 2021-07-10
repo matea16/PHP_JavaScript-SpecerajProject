@@ -2,6 +2,8 @@
 
 require_once __DIR__ . '/../app/database/db.class.php';
 require_once __DIR__ .'/product.class.php';
+require_once __DIR__ .'/recenzije.class.php';
+require_once __DIR__ .'/user.class.php';
 
 
 class SpecerajService{
@@ -159,6 +161,24 @@ class SpecerajService{
         return $products;
     }
 
+    public static function izracunajOcjenu($imeTrgovine)
+    {
+        $id = SpecerajService::getTrgovinaId($imeTrgovine);
+        $db = DB::getConnection();
+        $st = $db->prepare('SELECT * FROM projekt_recenzije WHERE id_trgovina =:id');
+        $st->execute(['id' => $id]);
+
+        $koliko = 0;
+        $zbroj = 0;
+        while($row =$st->fetch())
+        {
+            $zbroj+=$row['ocjena'];
+            $koliko++;
+        }
+        $ocjena = $zbroj/$koliko;
+        return $ocjena;
+    }
+
     //-------------------------------------------------------------
     //za Login
     public static function Login($username, $password){
@@ -205,6 +225,17 @@ class SpecerajService{
         return $row['id'];
     }
 
+    public static function getUserById($id_user)
+    {
+        $db=DB::getConnection();
+        $st=$db->prepare('SELECT * FROM projekt_users WHERE id=:id');
+        $st->execute(['id'=>$id_user]);
+
+        $row=$st->fetch();
+        return new User($row['id'], $row['username'],$row['password_hash'],$row['email'], $row['registration_sequence'],$row['has_registered']);
+
+    }
+
     public static function getOwnedProducts($user_id)
     {
         $db=DB::getConnection();
@@ -219,6 +250,37 @@ class SpecerajService{
         }
 
         return $products;
+    }
+
+
+    //----------------------------------------
+    //za recenzije
+    public static function getRecenzijaByTrgovina($idTrgovine)
+    {
+        $db=DB::getConnection();
+        $st=$db->prepare('SELECT * FROM projekt_recenzije WHERE id_trgovina=:id');
+        $st->execute(['id'=>$idTrgovine]);
+
+        $recenzije=[];
+        while($row =$st->fetch())
+        {
+            $id_recenzija=$row['id'];
+            if($row['komentar'] !== null || $row['ocjena'] !== null)
+                $recenzije[]=SpecerajService::getRecenzijaById($id_recenzija);
+        }
+        return $recenzije;
+    }
+
+
+    public static function getRecenzijaById($id_recenzija)
+    {
+        $db=DB::getConnection();
+        $st=$db->prepare('SELECT * FROM projekt_recenzije WHERE id=:id'); 
+        $st->execute(['id'=>$id_recenzija]);
+
+        $row=$st->fetch();
+        return new Recenzija($row['id'], $row['id_trgovina'],$row['id_user'],$row['ocjena'],$row['komentar']);
+
     }
 
 
