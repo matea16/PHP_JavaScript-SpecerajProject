@@ -103,6 +103,39 @@ class SpecerajService{
         return $products;
     }
 
+    //-------------------------------------------------------------
+    //za Login
+    public static function Login($username, $password){
+
+        $db = DB::getConnection();
+        echo $username;
+        $st = $db->prepare('SELECT password_hash FROM projekt_users WHERE username =:username');
+        $st->execute(['username' => $username]);
+        
+
+        if( $st->rowCount() !== 1){
+            $return_state = false;
+        }
+        elseif( password_verify( $password, $st->fetch()["password_hash"] ) ){
+            $return_state = true;
+        }
+        else{
+            $return_state = false;
+        }
+
+        if($return_state){
+            $secret_word = 'Monstruozno';
+            $_SESSION['login'] = $username . ',' . md5( $username . $secret_word);
+            $_SESSION['username'] = $username;
+        }
+        return $return_state;
+    }
+
+    function logout(){
+
+        session_unset();
+        session_destroy();
+    }
 
 
 }
