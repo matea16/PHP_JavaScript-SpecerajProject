@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
    <script type="text/javascript" src="javascript/naslovna.js"></script>
-   <script type="text/javascript" src="javascript/javasc.js"></script> 
-   <title>Špeceraj</title>
+   <script type="text/javascript" src="javascript/javasc.js"></script>
+    <title>Špeceraj</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>

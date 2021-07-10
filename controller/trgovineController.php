@@ -17,6 +17,7 @@ class TrgovineController{
         $imeTrgovine = $_GET['imeTrgovine'];
         $idTrgovine = SpecerajService::getTrgovinaId($imeTrgovine);
         $productList = SpecerajService::getProductsByStore($idTrgovine);
+        $keyWord = "";
         require_once __DIR__.'/../view/products_index.php';
     }
     

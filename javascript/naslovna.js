@@ -23,9 +23,6 @@ function napisi_naslov()
     ctx.fillText( "ŠPECERAJ", w/2 - duljinaNaslova/2, 125 );
     console.log(w);
 
-    
-
-        
 }
 
 });
