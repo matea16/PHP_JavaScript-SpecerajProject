@@ -32,3 +32,5 @@
     <br>
     <br>
     <button id="btn-signup" style="position: absolute; top:140px; left:60px;">Sign up</button>
+
+    <div id="div-popis"></div>

@@ -13,6 +13,7 @@ class LoginController{
             $login = $es->Login($_POST['username'], $_POST['password']);
 
             if($login === true){
+                $_SESSION['username'] = $_POST['username'];
                 header( 'Location: index.php?rt=products/index&username='.$_POST['username'] );
             }
             // else{
