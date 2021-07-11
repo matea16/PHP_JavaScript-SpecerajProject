@@ -31,7 +31,6 @@
 <button id="btn-signin" style="position: absolute; top:60px; left:60px;">Sign in</button>
     <br>
     <br>
-<button id="btn-signup" style="position: absolute; top:120px; left:60px;">Sign up</button>
-    <br>
-    <br>
-<button id="btn-signout" style="position: absolute; top:180px; left:60px;">Sign out</button>
+    <button id="btn-signup" style="position: absolute; top:140px; left:60px;">Sign up</button>
+
+    <div id="div-popis"></div>

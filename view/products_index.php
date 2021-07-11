@@ -44,7 +44,7 @@ if( isset($msg) ){
             {
                 
                 echo '<li class="products">';
-                echo $product->name.'     ';               
+                echo '<p id = "pr_'.$product->id.'">'.$product->name.'</p>';               
                 if ($product->akcija !== null)
                 {
                     $newPrice = $product->price - ($product->akcija/100)*$product->price;
@@ -54,7 +54,7 @@ if( isset($msg) ){
                 }
                 else
                     echo '<p>'.$product->price.'kn</p>';
-                echo '<button id="dodajUkosaricu">Dodaj u košaricu</button>';
+                echo '<button id="'.$product->id.'" onClick="dodaj_proizvod(this.id)">'.'Dodaj u košaricu</button>';
                 echo '</a>';   
             }
     }

@@ -67,6 +67,20 @@ class ProductsController{
             $productList = SpecerajService::sortirajProizvode($productList, $kako);
             require_once __DIR__.'/../view/products_index.php';
         }
+
+        public function kosarica()
+        {
+            /*if(!isset($_SESSION['username']))
+            header( 'Location: index.php?rt=login/index' );
+
+            else{
+                $username = $_SESSION['username'];
+                require_once __DIR__.'/../view/kosarica_index.php';
+            }*/
+            require_once __DIR__.'/../view/kosarica_index.php';
+
+
+        }
 };
 
 ?>
