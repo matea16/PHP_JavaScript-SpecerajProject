@@ -4,9 +4,29 @@ $(document).ready(function(){
 		signin_();
 	});
 
+	$("#btn-signup").on("click", function(){
+		console.log("tu");
+		signup_();
+	});
+	
+	$("#btn-signout").on("click", function(){
+		signout_();
+	});
+
+//---------------------------------------------
+
 	function signin_()
 	{
 		window.location.href = "index.php?rt=login/index";
+	}
+	function signup_()
+	{
+		window.location.href = "index.php?rt=login/addUser";
+	}
+	function signout_()
+	{
+		window.location.href = "index.php?rt=login/logout";
+		
 	}
 });
 

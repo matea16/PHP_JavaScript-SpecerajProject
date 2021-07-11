@@ -207,6 +207,21 @@ class SpecerajService{
         return $return_state;
     }
 
+    public static function SignUp($username, $password, $email){
+        //dodati ostale varijable!
+        $db = DB::getConnection();
+        $nesto = "";
+        $return_state = true;
+		try
+		{
+			$st = $db->prepare( 'INSERT INTO projekt_users(user_id, username, password_hash, email, registration_sequence, has_registered)
+								VALUES (:user_id, :username, :password_hash, :email, :registration_sequence, :has_registered)' );
+
+			$st->execute( array( 'id_user' => 1, 'username' => $username, 'password_hash' => $nesto, 'email' => $email, 'registration_sequence' => $nesto, 'has_registered' => $nesto ));
+		}
+		catch( PDOException $e ) { $return_state = false; }
+    }
+
     function logout(){
 
         session_unset();
@@ -236,21 +251,21 @@ class SpecerajService{
 
     }
 
-    public static function getOwnedProducts($user_id)
-    {
-        $db=DB::getConnection();
-        $st=$db->prepare('SELECT * FROM projekt_products WHERE id_user=:id_user');
-        $st->execute(['id_user'=>$user_id]);
+    // public static function getOwnedProducts($user_id)
+    // {
+    //     $db=DB::getConnection();
+    //     $st=$db->prepare('SELECT * FROM projekt_ WHERE id_user=:id_user');
+    //     $st->execute(['id_user'=>$user_id]);
 
-        $products=[];
-        while($row =$st->fetch())
-        {
-            $id_product=$row['id'];
-            $products[]=SpecerajService::getProductById($id_product);
-        }
+    //     $products=[];
+    //     while($row =$st->fetch())
+    //     {
+    //         $id_product=$row['id'];
+    //         $products[]=SpecerajService::getProductById($id_product);
+    //     }
 
-        return $products;
-    }
+    //     return $products;
+    // }
 
 
     //----------------------------------------

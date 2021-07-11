@@ -33,7 +33,7 @@ ul {
 .text{
   font-size: 30px;
 }
-#btn-signin, #btn-signup{
+#btn-signin, #btn-signup, #btn-signout{
     border: 1px solid rgba(41, 96, 167, 0.438) ;
     background-color: rgba(45, 106, 185, 0.418);
     border-radius: 20px;
