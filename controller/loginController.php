@@ -6,13 +6,18 @@ require_once __DIR__ . '/../model/specerajservice.class.php';
 class LoginController{
 
     public function index(){
+
+        session_start();
         
+        $_SESSION['prijavljen'] = false;
         $es = new SpecerajService();
 
         if( isset($_POST['username']) && isset($_POST['password'])){
+
             $login = $es->Login($_POST['username'], $_POST['password']);
 
             if($login === true){
+                $_SESSION['prijavljen'] = true;
                 $_SESSION['username'] =  $_POST['username'];
                 header( 'Location: index.php?rt=products/index&username='.$_POST['username'] );
             }
@@ -29,34 +34,35 @@ class LoginController{
         }
     } 
 
-    public function addUser()
-    {
-        $es = new SpecerajService();
+    // public function addUser()
+    // {
+    //     $es = new SpecerajService();
 
-        if( isset($_POST['username']) && isset($_POST['password']) &&  isset($_POST['email']))
-        {
-            $signup = $es->SignUp($_POST['username'], $_POST['password'], $_POST['email']);
+    //     if( isset($_POST['username']) && isset($_POST['password']) &&  isset($_POST['email']))
+    //     {
+    //         $signup = $es->SignUp($_POST['username'], $_POST['password'], $_POST['email']);
 
-            if($signup === true){
-                $_SESSION['username'] =  $_POST['username'];
-                header( 'Location: index.php?rt=products/index&username='.$_POST['username'] );
-            }
-            else{
+    //         if($signup === true){
+    //             $_SESSION['prijavljen'] = true;
+    //             $_SESSION['username'] =  $_POST['username'];
+    //             header( 'Location: index.php?rt=products/index&username='.$_POST['username'] );
+    //         }
+    //         else{
 
-                $msg = 'Neispravno korisničko ime ili lozinka!';
+    //             $msg = 'Neispravno korisničko ime ili lozinka!';
 
-                require_once __DIR__ . '/../view/signup_index.php';
-            }
+    //             require_once __DIR__ . '/../view/signup_index.php';
+    //         }
             
-        }
+    //     }
 
-        else{
-            require_once __DIR__ . '/../view/signup_index.php';
-        }
-    }
+    //     else{
+    //         require_once __DIR__ . '/../view/signup_index.php';
+    //     }
+    // }
 
     public function logout(){
-
+        $_SESSION['prijavljen'] = false;
         SpecerajService::logout();
         header( 'Location: index.php?rt=index' );
     }

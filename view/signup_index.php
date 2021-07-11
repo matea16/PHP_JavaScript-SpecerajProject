@@ -12,13 +12,13 @@ if( isset($msg) ){
 <form action="index.php?rt=login" method="post">
     <label for="username_input" class="text">
         Username:
-        <input type="text" name="username" id="username_input" class="text">
+        <input type="text" name="username_signup" id="username_inp" class="text">
     </label>
     <br>
     <br>
     <label for="password_input" class="text">
         Password:
-        <input type="password" name="password" id="password_input" class ="text">
+        <input type="password" name="password_signup" id="password_inp" class ="text">
     </label>
 	<br>
     <br>

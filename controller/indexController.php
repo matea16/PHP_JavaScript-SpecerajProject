@@ -4,7 +4,6 @@ class IndexController{
 
     public function index()
     {
-
         $productList=SpecerajService::getProductsOnAkcija();
         $imeTrgovine="";
         $keyWord="";

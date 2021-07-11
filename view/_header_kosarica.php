@@ -28,9 +28,27 @@
 
     </ul>
 </nav>
-<button id="btn-signin" style="position: absolute; top:60px; left:60px;">Sign in</button>
-    <br>
-    <br>
-    <button id="btn-signup" style="position: absolute; top:140px; left:60px;">Sign up</button>
-
-    <div id="div-popis"></div>
+<?php
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+    if(isset($_SESSION['prijavljen'])){
+        if($_SESSION['prijavljen']===true){
+            echo '<button id="btn-signout" style="position: absolute; top:60px; left:60px;">Sign out</button>
+            <br><br>';
+        }
+        else{
+            echo '<button id="btn-signin" style="position: absolute; top:60px; left:60px;">Sign in</button>
+            <br><br>
+            <button id="btn-signup" style="position: absolute; top:120px; left:60px;">Sign up</button>';
+        }
+        
+    }
+    else{
+        echo '<button id="btn-signin" style="position: absolute; top:60px; left:60px;">Sign in</button>
+        <br><br>
+        <button id="btn-signup" style="position: absolute; top:120px; left:60px;">Sign up</button>';
+    }
+?>
+   
+<div id="div-popis"></div>

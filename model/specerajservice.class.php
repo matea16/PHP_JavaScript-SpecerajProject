@@ -187,7 +187,6 @@ class SpecerajService{
         echo $username;
         $st = $db->prepare('SELECT password_hash FROM projekt_users WHERE username =:username');
         $st->execute(['username' => $username]);
-        
 
         if( $st->rowCount() !== 1){
             $return_state = false;
@@ -207,20 +206,20 @@ class SpecerajService{
         return $return_state;
     }
 
-    public static function SignUp($username, $password, $email){
-        //dodati ostale varijable!
-        $db = DB::getConnection();
-        $nesto = "";
-        $return_state = true;
-		try
-		{
-			$st = $db->prepare( 'INSERT INTO projekt_users(user_id, username, password_hash, email, registration_sequence, has_registered)
-								VALUES (:user_id, :username, :password_hash, :email, :registration_sequence, :has_registered)' );
+    // public static function SignUp($username, $password, $email){
+    //     //dodati ostale varijable!
+    //     $db = DB::getConnection();
+    //     $nesto = "";
+    //     $return_state = true;
+	// 	try
+	// 	{
+	// 		$st = $db->prepare( 'INSERT INTO projekt_users(user_id, username, password_hash, email, registration_sequence, has_registered)
+	// 							VALUES (:user_id, :username, :password_hash, :email, :registration_sequence, :has_registered)' );
 
-			$st->execute( array( 'id_user' => 1, 'username' => $username, 'password_hash' => $nesto, 'email' => $email, 'registration_sequence' => $nesto, 'has_registered' => $nesto ));
-		}
-		catch( PDOException $e ) { $return_state = false; }
-    }
+	// 		$st->execute( array( 'id_user' => 1, 'username' => $username, 'password_hash' => $nesto, 'email' => $email, 'registration_sequence' => $nesto, 'has_registered' => $nesto ));
+	// 	}
+	// 	catch( PDOException $e ) { $return_state = false; }
+    // }
 
     function logout(){
 

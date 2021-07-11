@@ -5,7 +5,6 @@ $(document).ready(function(){
 	});
 
 	$("#btn-signup").on("click", function(){
-		console.log("tu");
 		signup_();
 	});
 	
@@ -21,7 +20,7 @@ $(document).ready(function(){
 	}
 	function signup_()
 	{
-		window.location.href = "index.php?rt=login/addUser";
+		window.location.href = "index.php?rt=login/index";
 	}
 	function signout_()
 	{
