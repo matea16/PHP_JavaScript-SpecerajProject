@@ -10,6 +10,7 @@ class LoginController{
         $es = new SpecerajService();
 
         if( isset($_POST['username']) && isset($_POST['password'])){
+
             $login = $es->Login($_POST['username'], $_POST['password']);
 
             if($login === true){

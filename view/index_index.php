@@ -9,7 +9,7 @@ if( isset($msg) ){
 <hr>
 <br>
 
-<form action="index.php?rt=login" method="post">
+<form action="index.php?rt=login/index" method="post">
     <label for="username_input" class="text">
         Username:
         <input type="text" name="username" id="username_input" class="text">
