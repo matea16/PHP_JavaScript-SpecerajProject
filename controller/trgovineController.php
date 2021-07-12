@@ -21,6 +21,15 @@ class TrgovineController{
         require_once __DIR__.'/../view/products_index.php';
     }
 
+    public function naAkciji()
+    {
+        $imeTrgovine = $_GET['imeTrgovine'];
+        $idTrgovine = SpecerajService::getTrgovinaId($imeTrgovine);
+        $productList = SpecerajService::getProductsOnAkcijaByStore($idTrgovine);
+        $keyWord = "";
+        require_once __DIR__.'/../view/products_index.php';
+    }
+
 
     public function recenzije()
     {

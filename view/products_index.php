@@ -13,6 +13,7 @@ if( isset($msg) ){
     <?php 
     if($imeTrgovine!== "")
         echo 'Proizvodi dostupni u trgovini:  <strong style="color:firebrick">'.$imeTrgovine.'</strong>';
+        
     ?> 
 </strong>
 

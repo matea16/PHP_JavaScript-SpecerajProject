@@ -161,6 +161,24 @@ class SpecerajService{
         return $products;
     }
 
+    public static function getProductsOnAkcijaByStore($idTrgovine)
+    {
+        $db=DB::getConnection();
+        $st=$db->prepare('SELECT * FROM projekt_products WHERE id_trgovina=:id');
+        $st->execute(['id'=>$idTrgovine]);
+
+        $products=[];
+        while($row =$st->fetch())
+        {
+            $id_product=$row['id'];
+            if($row['akcija'] !== null)
+                $products[]=SpecerajService::getProductById($id_product);
+        }
+
+        return $products;
+
+    }
+
     public static function izracunajOcjenu($imeTrgovine)
     {
         $id = SpecerajService::getTrgovinaId($imeTrgovine);
@@ -345,6 +363,17 @@ class SpecerajService{
         return new Recenzija($row['id'], $row['id_trgovina'],$row['id_user'],$row['ocjena'],$row['komentar']);
 
     }
+
+    public static function addComment($comment, $rating, $user_id, $idTrgovine){
+        try{
+                 
+                 $db = DB::getConnection();
+                 $st = $db->prepare( 'INSERT INTO projekt_recenzije(id_user, id_trgovina, ocjena, komentar) VALUES (:id_user, :id_trgovina, :ocjena, :komentar)' );
+     
+                 $st->execute( array( 'id_user' => $user_id, 'id_trgovina' => $idTrgovine, 'ocjena' =>$rating , 'komentar' => $comment ) );
+        }
+        catch( PDOException $e ) { exit( "PDO error: " . $e->getMessage() ); }
+     }
 
 
 }
