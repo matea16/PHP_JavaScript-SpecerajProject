@@ -70,13 +70,7 @@ class ProductsController{
 
         public function kosarica()
         {
-            /*if(!isset($_SESSION['username']))
-            header( 'Location: index.php?rt=login/index' );
-
-            else{
-                $username = $_SESSION['username'];
-                require_once __DIR__.'/../view/kosarica_index.php';
-            }*/
+            $najpovoljnijaPoruka = '';
             require_once __DIR__.'/../view/kosarica_index.php';
 
 

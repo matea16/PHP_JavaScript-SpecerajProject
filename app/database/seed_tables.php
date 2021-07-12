@@ -43,9 +43,29 @@ function seed_table_products()
 		$st = $db->prepare( 'INSERT INTO projekt_products(id_trgovina, name, akcija, price) VALUES (:id_trgovina, :name, :akcija, :price)' );
 
 		$st->execute( array( 'id_trgovina' => 1, 'name' => 'Kruh sa sjemenkama', 'akcija' => NULL, 'price' => 8.99 ) );
-		$st->execute( array( 'id_trgovina' => 2, 'name' => 'Bijeli kruh', 'akcija' => 20, 'price' => 5.99) ); 
+		$st->execute( array( 'id_trgovina' => 1, 'name' => 'Bijeli kruh', 'akcija' => 20, 'price' => 5.99) ); 
 		$st->execute( array( 'id_trgovina' => 1, 'name' => 'Ananas', 'akcija' => NULL, 'price' => 12.99 ) ); 
-		$st->execute( array( 'id_trgovina' => 3, 'name' => 'Mlijeko', 'akcija' => NULL, 'price' => 6.99) ); 
+		$st->execute( array( 'id_trgovina' => 1, 'name' => 'Mlijeko', 'akcija' => NULL, 'price' => 6.99) ); 
+
+		$st->execute( array( 'id_trgovina' => 2, 'name' => 'Kruh sa sjemenkama', 'akcija' => NULL, 'price' => 7.99 ) );
+		$st->execute( array( 'id_trgovina' => 2, 'name' => 'Bijeli kruh', 'akcija' => NULL, 'price' => 6.99) ); 
+		$st->execute( array( 'id_trgovina' => 2, 'name' => 'Ananas', 'akcija' => 30, 'price' => 12.99 ) ); 
+		$st->execute( array( 'id_trgovina' => 2, 'name' => 'Mlijeko', 'akcija' => 15, 'price' => 6.99) ); 
+
+		$st->execute( array( 'id_trgovina' => 3, 'name' => 'Kruh sa sjemenkama', 'akcija' => NULL, 'price' => 5.99 ) );
+		$st->execute( array( 'id_trgovina' => 3, 'name' => 'Bijeli kruh', 'akcija' => NULL, 'price' => 5.99) ); 
+		$st->execute( array( 'id_trgovina' => 3, 'name' => 'Ananas', 'akcija' => NULL, 'price' => 12.99 ) ); 
+		$st->execute( array( 'id_trgovina' => 3, 'name' => 'Mlijeko', 'akcija' => NULL, 'price' => 4.99) ); 
+
+		$st->execute( array( 'id_trgovina' => 4, 'name' => 'Kruh sa sjemenkama', 'akcija' => 10, 'price' => 7.99 ) );
+		$st->execute( array( 'id_trgovina' => 4, 'name' => 'Bijeli kruh', 'akcija' => 25, 'price' => 5.99) ); 
+		$st->execute( array( 'id_trgovina' => 4, 'name' => 'Ananas', 'akcija' => NULL, 'price' => 10.99 ) ); 
+		$st->execute( array( 'id_trgovina' => 4, 'name' => 'Mlijeko', 'akcija' => NULL, 'price' => 7.99) ); 
+
+		$st->execute( array( 'id_trgovina' => 5, 'name' => 'Kruh sa sjemenkama', 'akcija' => 10, 'price' => 8.99 ) );
+		$st->execute( array( 'id_trgovina' => 5, 'name' => 'Bijeli kruh', 'akcija' => 20, 'price' => 5.99) ); 
+		$st->execute( array( 'id_trgovina' => 5, 'name' => 'Ananas', 'akcija' => NULL, 'price' => 14.99 ) ); 
+		$st->execute( array( 'id_trgovina' => 5, 'name' => 'Mlijeko', 'akcija' => 10, 'price' => 7.99) ); 
 	}
 	catch( PDOException $e ) { exit( "PDO error [projekt_products]: " . $e->getMessage() ); }
 

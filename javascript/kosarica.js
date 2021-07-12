@@ -7,7 +7,7 @@ $(document).ready( function()
 
     $('#dodajUkosaricu').on('click', dodaj_proizvod);
 
-    //$('body').on('change', 'input', obavi_posao);
+    $('#nadi_najpovoljnije').on('click', nadi_trgovinu);
 
 });
 
@@ -73,4 +73,33 @@ $(document).ready( function()
             }
             
         }
+    }
+
+    function nadi_trgovinu()
+    {
+        broj_proizvoda = 0;
+        let proiz = [];
+        let temp = +localStorage.getItem('ukupno');
+
+        while(temp>0)
+        {
+            let key = 'proizvod_'+broj_proizvoda;
+            let proizvod= localStorage.getItem(key);
+
+            if (proizvod === null)
+                broj_proizvoda++;
+
+            else          
+            {
+                proiz.push(proizvod);
+                temp--;
+                ++broj_proizvoda;
+
+            }
+            
+        }
+        var data = proiz.join(','); 
+        window.location = "index.php?rt=trgovine/najpovoljnija&data="+data; 
+
+
     }

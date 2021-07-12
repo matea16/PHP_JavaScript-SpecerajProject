@@ -49,6 +49,12 @@
         <br><br>
         <button id="btn-signup" style="position: absolute; top:120px; left:60px;">Sign up</button>';
     }
+
+if($najpovoljnijaPoruka !== '' ){
+    echo $najpovoljnijaPoruka . '<br>';
+}
+
 ?>
-   
 <div id="div-popis"></div>
+<br><br>
+<button id="nadi_najpovoljnije">Nađi najpovoljniju trgovinu!</button>

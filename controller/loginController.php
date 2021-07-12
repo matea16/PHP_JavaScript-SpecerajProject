@@ -7,7 +7,7 @@ class LoginController{
 
     public function index(){
 
-        session_start();
+
         
         $_SESSION['prijavljen'] = false;
         $es = new SpecerajService();

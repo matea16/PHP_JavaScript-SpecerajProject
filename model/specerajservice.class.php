@@ -179,6 +179,55 @@ class SpecerajService{
         return $ocjena;
     }
 
+
+    public static function getNajpovoljnijaTrgovina($proizvodi, $c)
+    {
+        $sveTrgovine = SpecerajService::getTrgovine();
+        $id0=SpecerajService::getTrgovinaId($sveTrgovine[0]);
+
+        $db = DB::getConnection();
+        $st = $db->prepare('SELECT * FROM projekt_products WHERE id_trgovina =:id AND name=:ime');
+
+        $cijena = 0;
+
+        foreach($proizvodi as $proizvod)
+        {
+            $st->execute(['id' => $id0, 'ime' => $proizvod]);
+            $pom = $st->fetch();
+            $pom2=SpecerajService::getProductById($pom['id']);
+            $cijena += SpecerajService::izracunajCijenu($pom2);
+
+        }
+
+        $minCijena = $cijena;
+        $minTrgovina = $sveTrgovine[0];
+
+        for($i = 1; $i < sizeof($sveTrgovine); ++$i)
+        {
+            $cijena = 0;
+            foreach($proizvodi as $proizvod)
+            {
+                $st->execute(['id' => $id0, 'ime' => $proizvod]);
+                $pom = $st->fetch();
+                $pom2=SpecerajService::getProductById($pom['id']);
+                $cijena += SpecerajService::izracunajCijenu($pom2);
+    
+            }
+
+            if($cijena < $minCijena)
+            {
+                $minCijena = $cijena;
+                $minTrgovina = $sveTrgovine[$i];
+            }
+
+        }
+        if($c === 0)
+            return $minTrgovina;
+        else 
+            return $minCijena;
+
+
+    }
     //-------------------------------------------------------------
     //za Login
     public static function Login($username, $password){

@@ -39,6 +39,18 @@ class TrgovineController{
         $keyWord = "";
         require_once __DIR__.'/../view/trgovina_opis.php';
     }
+
+    public function najpovoljnija()
+    {
+        $p = $_GET['data'];
+        $proizvodi = explode(',',$p);    
+        $najpovoljnija = SpecerajService::getNajpovoljnijaTrgovina($proizvodi, 0);
+        $najpovoljnijaCijena = SpecerajService::getNajpovoljnijaTrgovina($proizvodi, 1);
+        $najpovoljnijaPoruka = 'Trgovina sa najpovoljnijom cijenom za Vašu košaricu je: '.$najpovoljnija
+                                .'!<br> Ukupna cijena je: '.$najpovoljnijaCijena.'kn<br><br>';
+
+        require_once __DIR__ . '/../view/kosarica_index.php';
+    }
     
 };
 
