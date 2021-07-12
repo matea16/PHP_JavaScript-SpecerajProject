@@ -30,7 +30,8 @@ if( isset($msg) ){
         if($productList !== $temp)
         {
             ?>
-                <form action="index.php?rt=products/sortiraj&ime=<?php echo $imeTrgovine ?>&keyWord=<?php echo $keyWord ?>" method="post">
+                <form action="index.php?rt=products/sortiraj&ime=<?php echo $imeTrgovine ?>&keyWord=<?php echo $keyWord ?>
+                &naAkciji=<?php echo $naAkciji ?>" method="post">
                 <strong class="podnaslov" > Sortiraj po: 
                 <select name="kako">
                                 <option value="uzlazno"> Cijena uzlazno </option>
@@ -48,7 +49,7 @@ if( isset($msg) ){
                 echo '<p id = "pr_'.$product->id.'">'.$product->name.'</p>';               
                 if ($product->akcija !== null)
                 {
-                    $newPrice = $product->price - ($product->akcija/100)*$product->price;
+                    $newPrice = round($product->price - ($product->akcija/100)*$product->price, 2);
                     echo '<span class="novo">-'.$product->akcija.'% </span>';
                     echo '<p class="akcija">'.$product->price.'kn</p>';
                     echo 'Sada samo: <span class="novo">'.$newPrice.'kn</span></li>';

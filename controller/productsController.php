@@ -10,6 +10,7 @@ class ProductsController{
         $keyWord = '';
         $imeTrgovine="";
         $productList=SpecerajService::getProductsOnAkcija();
+        $naAkciji = "";
         require_once __DIR__.'/../view/products_index.php';
     }
 
@@ -30,6 +31,7 @@ class ProductsController{
                 $key_words = explode(" ", $string);
                 $productList=SpecerajService::findProducts($key_words);
                 $imeTrgovine="";
+                $naAkciji = "";
                 require_once __DIR__.'/../view/products_index.php';
 
             }
@@ -43,10 +45,11 @@ class ProductsController{
         {
             $imeTrgovine  = $_GET['ime'];
             $keyWord = $_GET['keyWord'];
+            $naAkciji =$_GET['naAkciji'];
 
             $kako =  $_POST['kako'];
 
-            if($imeTrgovine !== "")
+            if($imeTrgovine !== "" && $naAkciji!=="")
             {
                 $idTrgovine = SpecerajService::getTrgovinaId($imeTrgovine);
                 $productList = SpecerajService::getProductsByStore($idTrgovine);
@@ -59,6 +62,12 @@ class ProductsController{
                 $string = trim(preg_replace('!\s+!', ' ', $looking));
                 $key_words = explode(" ", $string);
                 $productList=SpecerajService::findProducts($key_words);
+
+            }
+            else if($imeTrgovine !== "")
+            {
+                $idTrgovine = SpecerajService::getTrgovinaId($imeTrgovine);
+                $productList = SpecerajService::getProductsOnAkcijaByStore($idTrgovine);
 
             }
             else 

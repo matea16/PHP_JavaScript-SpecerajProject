@@ -75,9 +75,9 @@ class SpecerajService{
     public static function izracunajCijenu($proizvod)
     {
         if($proizvod->akcija!== null)
-            return $proizvod->price - ($proizvod->akcija/100)*$proizvod->price;
+            return round($proizvod->price - ($proizvod->akcija/100)*$proizvod->price, 2);
 
-        else return $proizvod -> price;
+        else return round($proizvod -> price, 2);
             
         
     }
@@ -193,8 +193,13 @@ class SpecerajService{
             $zbroj+=$row['ocjena'];
             $koliko++;
         }
+        if($koliko !== 0)
+        {
         $ocjena = $zbroj/$koliko;
         return $ocjena;
+        }
+        else return -1;
+        
     }
 
 
@@ -225,7 +230,8 @@ class SpecerajService{
             $cijena = 0;
             foreach($proizvodi as $proizvod)
             {
-                $st->execute(['id' => $id0, 'ime' => $proizvod]);
+                $id=SpecerajService::getTrgovinaId($sveTrgovine[$i]);
+                $st->execute(['id' => $id, 'ime' => $proizvod]);
                 $pom = $st->fetch();
                 $pom2=SpecerajService::getProductById($pom['id']);
                 $cijena += SpecerajService::izracunajCijenu($pom2);

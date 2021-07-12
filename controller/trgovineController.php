@@ -18,6 +18,7 @@ class TrgovineController{
         $idTrgovine = SpecerajService::getTrgovinaId($imeTrgovine);
         $productList = SpecerajService::getProductsByStore($idTrgovine);
         $keyWord = "";
+        $naAkciji = "";
         require_once __DIR__.'/../view/products_index.php';
     }
 
@@ -27,6 +28,7 @@ class TrgovineController{
         $idTrgovine = SpecerajService::getTrgovinaId($imeTrgovine);
         $productList = SpecerajService::getProductsOnAkcijaByStore($idTrgovine);
         $keyWord = "";
+        $naAkciji = "naAkciji";
         require_once __DIR__.'/../view/products_index.php';
     }
 

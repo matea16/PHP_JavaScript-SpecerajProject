@@ -14,7 +14,9 @@ if( isset($msg) ){
         echo '<a href="index.php?rt=trgovine/naAkciji&imeTrgovine='.$imeTrgovine.'" >';
         echo '<p >  Prikaži proizvode na akciji'.'</p><br>';
         echo '</a>'; 
-    echo 'Ocjena ove trgovine: <strong style="color:firebrick">'.$ocjena.'</strong><br>';
+        if($ocjena !== -1)
+            echo 'Ocjena ove trgovine: <strong style="color:firebrick">'.$ocjena.'</strong><br>';
+        else echo 'Ova trgovina nema još recenzija!'
     ?> 
 </strong>
 
@@ -25,12 +27,13 @@ echo '<a href="index.php?rt=trgovine/sviProizvodi&imeTrgovine='.$imeTrgovine.'" 
 echo '<p >Dostupni proizvodi'.'</p><br><br>';
 echo '</a>'; 
 
-?>
-<strong class="podnaslov">
-<h2> Komentari naših kupaca:</h2>
-</strong>
 
-<?php
+if($ocjena !== -1)
+{
+
+    echo '<strong class="podnaslov">
+    <h2> Komentari naših kupaca:</h2>
+    </strong>';
     foreach($recenzijeList as $user=>$recenzija)
     {
         
@@ -38,6 +41,9 @@ echo '</a>';
         echo '<h3 class="comment">'.$recenzija->komentar.'<br>';
         echo 'Ocjena: '.$recenzija->ocjena.'/5</h3>';
     }
+
+}
+
 if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
