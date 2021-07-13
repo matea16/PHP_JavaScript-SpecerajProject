@@ -19,7 +19,7 @@ if( isset($msg) ){
 
 <strong class="podnaslov">
     <?php 
-    if($keyWord!== "")
+    if($keyWord !== "")
         echo 'Traženi proizvod:  <strong style="color:firebrick">'.$keyWord.'</strong>';
     ?> 
 </strong>

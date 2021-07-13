@@ -48,15 +48,22 @@ class ProductsController{
             $naAkciji =$_GET['naAkciji'];
 
             $kako =  $_POST['kako'];
-
             if($imeTrgovine !== "" && $naAkciji!=="")
             {
                 $idTrgovine = SpecerajService::getTrgovinaId($imeTrgovine);
-                $productList = SpecerajService::getProductsByStore($idTrgovine);
+                $productList = SpecerajService::getProductsOnAkcijaByStore($idTrgovine);
 
             }
 
-            else if($keyWord !== "")
+            else if($imeTrgovine !== "")
+            {
+                $idTrgovine = SpecerajService::getTrgovinaId($imeTrgovine);
+                $productList = SpecerajService::getProductsByStore($idTrgovine);
+                
+
+            }
+
+            else if($keyWord !== "" && $imeTrgovine === "" && $naAkciji ==="")
             {
                 $looking  = $keyWord;
                 $string = trim(preg_replace('!\s+!', ' ', $looking));
@@ -64,14 +71,12 @@ class ProductsController{
                 $productList=SpecerajService::findProducts($key_words);
 
             }
-            else if($imeTrgovine !== "")
-            {
-                $idTrgovine = SpecerajService::getTrgovinaId($imeTrgovine);
-                $productList = SpecerajService::getProductsOnAkcijaByStore($idTrgovine);
 
-            }
-            else 
+            else{
+
                 $productList=SpecerajService::getProductsOnAkcija();
+                $keyWord = "";
+            }
 
             $productList = SpecerajService::sortirajProizvode($productList, $kako);
             require_once __DIR__.'/../view/products_index.php';
