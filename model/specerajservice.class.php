@@ -279,20 +279,26 @@ class SpecerajService{
         return $return_state;
     }
 
-    // public static function SignUp($username, $password, $email){
-    //     //dodati ostale varijable!
-    //     $db = DB::getConnection();
-    //     $nesto = "";
-    //     $return_state = true;
-	// 	try
-	// 	{
-	// 		$st = $db->prepare( 'INSERT INTO projekt_users(user_id, username, password_hash, email, registration_sequence, has_registered)
-	// 							VALUES (:user_id, :username, :password_hash, :email, :registration_sequence, :has_registered)' );
+    public static function SignUp($username, $password, $email){
+        $db = DB::getConnection();
 
-	// 		$st->execute( array( 'id_user' => 1, 'username' => $username, 'password_hash' => $nesto, 'email' => $email, 'registration_sequence' => $nesto, 'has_registered' => $nesto ));
-	// 	}
-	// 	catch( PDOException $e ) { $return_state = false; }
-    // }
+        $st = $db->prepare( 'INSERT INTO projekt_users(username, password_hash, email, registration_sequence, has_registered) VALUES (:username, :password, :email, \'abc\', \'1\')' );
+        $st->execute( array( 'username' => $username, 'password' => password_hash( $password, PASSWORD_DEFAULT ), 'email' => $email ) );
+
+        if( $st->rowCount() !== 1){
+            $return_state = false;
+        }
+        else{
+            $return_state = true;
+        }
+
+        if($return_state){
+            $secret_word = 'Monstruozno';
+            $_SESSION['login'] = $username . ',' . md5( $username . $secret_word);
+            $_SESSION['username'] = $username;
+        }
+        return $return_state;
+    }
 
     function logout(){
 

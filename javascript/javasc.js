@@ -20,7 +20,7 @@ $(document).ready(function(){
 	}
 	function signup_()
 	{
-		window.location.href = "index.php?rt=login/index";
+		window.location.href = "index.php?rt=login/addUser";
 	}
 	function signout_()
 	{
