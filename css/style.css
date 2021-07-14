@@ -46,14 +46,14 @@ ul {
     color: #2e2e1f;
 }
 
-#dodajUkosaricu{
+.dodajUkosaricu{
   border: 1px solid rgba(49, 28, 51, 0.438) ;
   background-color: rgba(247, 122, 199, 0.418);
   border-radius: 20px;
   height: 60px;
   width: 100px;
   font-size: 18px;
-  position:absolute;
+  position:relative;
   float:right;
   left:0;
 }

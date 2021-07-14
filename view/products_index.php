@@ -56,7 +56,7 @@ if( isset($msg) ){
                 }
                 else
                     echo '<p>'.$product->price.'kn</p>';
-                echo '<button id="'.$product->id.'" onClick="dodaj_proizvod(this.id)">'.'Dodaj u košaricu</button>';
+                echo '<button id="'.$product->id.'"class = "dodajUkosaricu" onClick="dodaj_proizvod(this.id)">'.'Dodaj u košaricu</button>';
                 echo '</a>';   
             }
     }
