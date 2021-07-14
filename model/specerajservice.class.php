@@ -43,6 +43,8 @@ class SpecerajService{
         $st->execute();
         $proizvodi=$st->fetchAll();
         $products=[];
+        if ($key_words === "")
+            return $products;
         
         foreach($proizvodi as $proizvod)
         {

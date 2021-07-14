@@ -79,13 +79,13 @@ li.products {
   text-decoration: none;
 }
 .proizvod {
-  color: white;
-  font-family: 'Source Sans Pro';
+  color:#7c795d;
+  font-family: Trocchi;
   float: left;
   padding: 10px;
   width: 90%;
-  border: 10px solid white;
-  background-color: #64659d;
+  border: 10px solid #d9b38c;
+  background-color:#ffdd99;
   border-radius: 20px;
   text-decoration: none;
 }
@@ -136,6 +136,40 @@ select{
   height: 30px;
   width: 120px;
   font-size: 20px;
-
 }
 
+.div-popis{
+  color:#7c795d;
+  font-family: Trocchi;
+  float: left;
+  padding: 10px;
+  width: 90%;
+  border: 10px solid #d9b38c;
+  background-color:#ffdd99;
+  border-radius: 20px;
+  text-decoration: none;
+}
+
+#obrisi_proizvod{
+  border: 1px solid rgba(49, 28, 51, 0.438) ;
+  background-color: rgba(247, 122, 199, 0.418);
+  border-radius: 20px;
+  height: 60px;
+  width: 100px;
+  font-size: 18px;
+  position:relative;
+  float:right;
+  left:0;
+}
+
+#nadi_najpovoljnije{
+  border: 1px solid rgba(49, 28, 51, 0.438) ;
+  background-color: rgba(247, 122, 199, 0.418);
+  border-radius: 20px;
+  height: 60px;
+  width: 200px;
+  font-size: 18px;
+  /*position:relative;*/
+
+  left:0;
+}

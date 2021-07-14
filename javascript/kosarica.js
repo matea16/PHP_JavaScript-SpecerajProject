@@ -23,7 +23,7 @@ $(document).ready( function()
         t++;
 
         localStorage.setItem('ukupno', ''+t);
-        dohvati_proizvode();
+        //dohvati_proizvode();
     }
 
     function obrisi_proizvod(btn_id)
@@ -56,7 +56,7 @@ $(document).ready( function()
             else          
             {
                 let span = $('<span>');
-                let but = $('<button onClick="obrisi_proizvod(this.id)"></button>');
+                let but = $('<button onClick="obrisi_proizvod(this.id) "></button>');
 
                 span.append(proizvod);
                 span.append('<br>');

@@ -52,6 +52,7 @@ class ProductsController{
             {
                 $idTrgovine = SpecerajService::getTrgovinaId($imeTrgovine);
                 $productList = SpecerajService::getProductsOnAkcijaByStore($idTrgovine);
+                $keyWord = "";
 
             }
 
@@ -59,7 +60,7 @@ class ProductsController{
             {
                 $idTrgovine = SpecerajService::getTrgovinaId($imeTrgovine);
                 $productList = SpecerajService::getProductsByStore($idTrgovine);
-                
+                $keyWord = "";
 
             }
 
@@ -69,6 +70,13 @@ class ProductsController{
                 $string = trim(preg_replace('!\s+!', ' ', $looking));
                 $key_words = explode(" ", $string);
                 $productList=SpecerajService::findProducts($key_words);
+
+                $temp = [];
+                if($productList === $temp)
+                {
+                    $productList = SpecerajService::getProductsOnAkcija();
+                    $keyWord = "";;
+                }
 
             }
 

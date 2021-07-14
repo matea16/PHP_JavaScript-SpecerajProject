@@ -55,6 +55,6 @@ if($najpovoljnijaPoruka !== '' ){
 }
 
 ?>
-<div id="div-popis"></div>
+<div id="div-popis" class = "div-popis"></div>
 <br><br>
 <button id="nadi_najpovoljnije">Nađi najpovoljniju trgovinu!</button>

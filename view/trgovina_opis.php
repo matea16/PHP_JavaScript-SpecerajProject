@@ -10,7 +10,7 @@ if( isset($msg) ){
 <strong class="podnaslov">
     <?php 
     if($imeTrgovine!== "")
-        echo 'Dobrodočli u trgovinu:  <strong style="color:firebrick">'.$imeTrgovine.'</strong><br>';
+        echo 'Dobrodošli u trgovinu:  <strong style="color:firebrick">'.$imeTrgovine.'</strong><br>';
         echo '<a href="index.php?rt=trgovine/naAkciji&imeTrgovine='.$imeTrgovine.'" >';
         echo '<p >  Prikaži proizvode na akciji'.'</p><br>';
         echo '</a>'; 
