@@ -17,8 +17,8 @@ function napisi_naslov()
     
     
     ctx.textAlign = "center";
-    ctx.fillStyle = "firebrick";
-    ctx.font = "90px Cursive";
+    ctx.fillStyle = "#63614a";
+    ctx.font = "90px Source Sans Pro";
     let duljinaNaslova = ctx.measureText("ŠPECERAJ").width;
     ctx.fillText( "ŠPECERAJ", w/2 - duljinaNaslova/2, 125 );
     console.log(w);

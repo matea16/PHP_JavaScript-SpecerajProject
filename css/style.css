@@ -6,14 +6,14 @@
 #navbar ul{
   list-style: none;
   padding:0;
-  font-family: cursive;
+  font-family: Trocchi;
 }
 ul {
     list-style-type: none;
     margin: 0;
     width: 100%;
     font-size: 40px;
-    font-family: cursive;
+    font-family: Trocchi;
     font-size: 60px;
     overflow: hidden;
     position: relative;
@@ -25,7 +25,7 @@ ul {
 }
 
 #navbar a{
-  color: black;
+  color: #7c795d;
   text-decoration: none;
   font-size:35px;
   padding-right:30px;
@@ -34,74 +34,77 @@ ul {
   font-size: 30px;
 }
 #btn-signin, #btn-signup, #btn-signout{
-    border: 1px solid rgba(41, 96, 167, 0.438) ;
-    background-color: rgba(45, 106, 185, 0.418);
+    border: 1px solid rgba(49, 28, 51, 0.438) ;
+    background-color: rgba(247, 122, 199, 0.418);
     border-radius: 20px;
     height: 60px;
     width: 100px;
     font-size: 18px;
     position:relative;
     left:90%;
+    font-family: Trocchi;
+    color: #2e2e1f;
 }
 
 #dodajUkosaricu{
-  border: 1px solid rgba(41, 96, 167, 0.438) ;
-  background-color: rgba(45, 106, 185, 0.418);
+  border: 1px solid rgba(49, 28, 51, 0.438) ;
+  background-color: rgba(247, 122, 199, 0.418);
   border-radius: 20px;
   height: 60px;
   width: 100px;
   font-size: 18px;
-  position:relative;
+  position:absolute;
   float:right;
   left:0;
 }
 
 ul.products{
-    
   list-style-type: none;
   margin: 0;
   left:0;
   font-size: 20px;;
   overflow: hidden;
-  
-  
-
 }
+
 li.products {
-  color: white;
-  font-family: cursive;
+  color:#7c795d;
+  font-family: Trocchi;
   font-size: 30px;
   float: left;
   padding: 10px;
   width: 90%;
-  border: 10px solid white;
-  background-color: rgba(167, 64, 153, 0.699);
+  border: 10px solid #d9b38c;
+  background-color:#ffdd99;
   border-radius: 20px;
+  text-decoration: none;
 }
 .proizvod {
   color: white;
-  font-family: sans-serif;
+  font-family: 'Source Sans Pro';
   float: left;
   padding: 10px;
   width: 90%;
   border: 10px solid white;
   background-color: #64659d;
   border-radius: 20px;
+  text-decoration: none;
 }
 
 .podnaslov{
   font-size: 40px;
-  font-family: cursive;
-  color: coral;
+  font-family: 'Source Sans Pro';
+  color: #ff794d;
 }
 
 #srch{
-  border: 1px solid  rgba(167, 64, 153, 0.699); 
-  background-color: rgba(167, 64, 153, 0.699);
+  border: 1px solid rgba(49, 28, 51, 0.438) ;
+  background-color: rgba(247, 122, 199, 0.418);
   border-radius: 20px;
   height: 60px;
   width: 300px;
   font-size: 18px;
+  font-family: Trocchi;
+  color: #2e2e1f;
 
 }
 .akcija{
@@ -116,7 +119,7 @@ li.products {
 
 
 body{
-  background-color: rgba(26, 96, 143, 0.349);
+  background-color:  #ffeee6;
 }
 
 select{
